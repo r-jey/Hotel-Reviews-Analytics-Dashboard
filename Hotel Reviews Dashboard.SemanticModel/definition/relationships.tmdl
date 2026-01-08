@@ -1,0 +1,9 @@
+relationship 91c8284d-f825-4f74-b36d-b4c24d31161f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Date Table'.Date
+	toColumn: LocalDateTable_2e8d5bc2-be8e-4789-ae5e-f77858335dc0.Date
+
+relationship 959badc7-241d-f558-075a-e92d0396479b
+	fromColumn: 'Hotel Reviews'.'Review Date'
+	toColumn: 'Date Table'.Date
+

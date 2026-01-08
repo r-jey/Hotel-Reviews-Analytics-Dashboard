@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Hotel Reviews Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2ed1373a-ace3-4473-b161-75e6c7124510"
+  }
+}

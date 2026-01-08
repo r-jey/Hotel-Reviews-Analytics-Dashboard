@@ -1,0 +1,110 @@
+table 'Date Table'
+	lineageTag: d331bfa6-2ae4-4178-bff5-bab020ba90c9
+
+	column Date
+		formatString: General Date
+		lineageTag: 69fd5ae3-cb00-4957-8bf0-5600518a67e1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 91c8284d-f825-4f74-b36d-b4c24d31161f
+			defaultHierarchy: LocalDateTable_2e8d5bc2-be8e-4789-ae5e-f77858335dc0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		formatString: 0
+		lineageTag: a48331f9-00c1-4bc1-9f81-aacb7dc33fdf
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = User
+
+	column Quarter
+		lineageTag: b9e07563-3eda-439b-9592-13cfd2f36618
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		lineageTag: aa0bf545-b12d-4d04-9e6a-51cccf249a73
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month Name]
+		sortByColumn: MonthNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Short'
+		lineageTag: ade59c03-923d-4ddb-90b4-2ac22b05c125
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month Short]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNo
+		formatString: 0
+		lineageTag: 43638d71-92e3-4a2f-8de4-eaf1966c6f38
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MonthNo]
+
+		annotation SummarizationSetBy = User
+
+	column 'Month Year'
+		lineageTag: ebb4a1b8-e90c-4b6f-9437-bd38b1719c09
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month Year]
+		sortByColumn: 'Month Sort'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Sort'
+		lineageTag: 1f8bc3f9-426f-4c12-b673-e41cd2c273c0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month Sort]
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Calendar Hierarchy'
+		lineageTag: 5b70417a-f54e-42db-9d53-40cf0daae64c
+
+		level Year
+			lineageTag: a4b1e947-46bb-418d-b287-3f97a3b9b635
+			column: Year
+
+		level Quarter
+			lineageTag: b8432e01-79e6-4ad1-bca4-cd6763c03b1f
+			column: Quarter
+
+		level 'Month Name'
+			lineageTag: 9b595410-9a95-4d98-866d-56265bcd7d75
+			column: 'Month Name'
+
+	partition 'Date Table' = calculated
+		mode: import
+		source = ```
+				
+				ADDCOLUMNS(
+				    CALENDAR(MIN('Hotel Reviews'[Review Date]), MAX('Hotel Reviews'[Review Date])),
+				    "Year", YEAR([Date]),
+				    "Quarter", "Q" & FORMAT([Date], "Q"),
+				    "Month Name", FORMAT([Date], "mmmm"),       
+				    "Month Short", FORMAT([Date], "mmm"),
+				    "MonthNo", MONTH([Date]),                   // 1 for Jan, 2 for Feb (Constant across years)
+				    "Month Year", FORMAT([Date], "mmm yyyy"),   // "Jan 2015"
+				    "Month Sort", FORMAT([Date], "yyyyMM")      // 201501 (Used to sort 'Month Year')
+				)
+				```
+
+	annotation PBI_Id = 1dc6a6ed6e7242b3be2d54a483e6cfa6
+

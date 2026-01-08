@@ -1,0 +1,316 @@
+table 'Hotel Reviews'
+	lineageTag: 45d5553b-bfe6-4691-9542-04636f64a28a
+
+	measure 'Total Stay Days (No K)'
+		lineageTag: f834d56d-5a53-469b-9b64-69181568b4fa
+
+	column 'Hotel Address'
+		dataType: string
+		lineageTag: 6373c1ee-90e0-46c0-b918-42ce316f0cbc
+		dataCategory: Address
+		summarizeBy: none
+		sourceColumn: Hotel Address
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Review Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0550caa2-3fc1-46ab-a266-e66d8705f53c
+		summarizeBy: none
+		sourceColumn: Review Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Average Score'
+		dataType: double
+		lineageTag: c4a43076-1ef2-45ba-ae20-15419cfb6b15
+		summarizeBy: average
+		sourceColumn: Average Score
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Hotel Name'
+		dataType: string
+		lineageTag: 4d0c6e7a-dc1f-4db5-87dc-e57ba056cebb
+		summarizeBy: none
+		sourceColumn: Hotel Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reviewer Nationality'
+		dataType: string
+		lineageTag: 4e5f2899-e255-4a55-a4c9-efdb28a15077
+		summarizeBy: none
+		sourceColumn: Reviewer Nationality
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Negative Review'
+		dataType: string
+		lineageTag: 919fabed-27f7-40a2-9c83-effc0a38347f
+		summarizeBy: none
+		sourceColumn: Negative Review
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Positive Review'
+		dataType: string
+		lineageTag: 72dce6cb-6b31-4b61-a3ba-421a20419666
+		summarizeBy: none
+		sourceColumn: Positive Review
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reviewer Score'
+		dataType: double
+		lineageTag: 64ba66c5-08f1-47fc-a0d0-bde87d16c634
+		summarizeBy: sum
+		sourceColumn: Reviewer Score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Days Since Review'
+		dataType: int64
+		formatString: 0
+		lineageTag: 45a7832c-3c41-483f-b2b7-299194a50820
+		summarizeBy: sum
+		sourceColumn: Days Since Review
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trip Type'
+		dataType: string
+		lineageTag: b85463cf-dd10-4ff4-b9a2-8210b75c1ab4
+		summarizeBy: none
+		sourceColumn: Trip Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Traveler Type'
+		dataType: string
+		lineageTag: ed9b78ae-274f-460e-9800-fd026fca0287
+		summarizeBy: none
+		sourceColumn: Traveler Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Room Type'
+		dataType: string
+		lineageTag: 3575915a-beca-49cb-b559-fcd31bc99f39
+		summarizeBy: none
+		sourceColumn: Room Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Stay Duration'
+		dataType: string
+		lineageTag: e64ad796-2666-4fa1-9587-d85e7e816c03
+		summarizeBy: none
+		sourceColumn: Stay Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Composite Sentiment'
+		dataType: double
+		lineageTag: 34843d30-9ec5-4e23-8051-b0ad4411d1b5
+		summarizeBy: sum
+		sourceColumn: Composite Sentiment
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Positive Tokens'
+		dataType: string
+		lineageTag: 21dc54e4-13fc-41b9-b730-0f7d736eb066
+		summarizeBy: none
+		sourceColumn: Positive Tokens
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Negative Tokens'
+		dataType: string
+		lineageTag: 199c8501-1ace-4b53-84e0-078a98408b97
+		summarizeBy: none
+		sourceColumn: Negative Tokens
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Positive Sentiment'
+		dataType: double
+		lineageTag: 7b4cdd67-a462-4861-ad57-aca7ed3431dd
+		summarizeBy: sum
+		sourceColumn: Positive Sentiment
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Negative Sentiment'
+		dataType: double
+		lineageTag: d337d321-e7c4-4438-862a-ee1edae9feaa
+		summarizeBy: sum
+		sourceColumn: Negative Sentiment
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Positive Keywords'
+		dataType: string
+		lineageTag: 5402338b-b333-4c78-a261-6952c836f038
+		summarizeBy: none
+		sourceColumn: Positive Keywords
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Negative Keywords'
+		dataType: string
+		lineageTag: daac029c-0a09-4385-bfc7-3bcae248c5e3
+		summarizeBy: none
+		sourceColumn: Negative Keywords
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sentiment Category' =
+			
+			SWITCH(
+			    TRUE(),
+			    'Hotel Reviews'[Composite Sentiment] > 0.05, "Positive",
+			    'Hotel Reviews'[Composite Sentiment] < -0.05, "Negative",
+			    "Neutral"
+			)
+		lineageTag: 82e92e9b-9118-473a-a434-272faf6a8117
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NPS Group' =
+			
+			SWITCH(
+			    TRUE(),
+			    'Hotel Reviews'[Reviewer Score] >= 9, "Promoter",
+			    'Hotel Reviews'[Reviewer Score] >= 7, "Passive",
+			    "Detractor"
+			)
+		lineageTag: eed70756-861f-4fa3-bc16-d5b9092fe89b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Guest Origin' = ```
+			
+			IF(
+			    CONTAINSSTRING(
+			        'Hotel Reviews'[Hotel Address], 
+			        TRIM('Hotel Reviews'[Reviewer Nationality])
+			    ),
+			    "Domestic",
+			    "International"
+			)
+			```
+		lineageTag: 80dc8938-f475-4fe9-afab-58f78563495d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Stay Days' = ```
+			
+			VAR RawText =
+			    TRIM ( FORMAT ( 'Hotel Reviews'[Stay Duration], "" ) )
+			
+			VAR SpacePos =
+			    SEARCH ( " ", RawText, 1, 0 )
+			
+			VAR NumText =
+			    IF ( SpacePos > 0, LEFT ( RawText, SpacePos - 1 ), RawText )
+			
+			RETURN
+			IF (
+			    RawText = "N/A" || RawText = "",
+			    1,
+			    IFERROR ( VALUE ( NumText ), 1 )
+			)
+			
+			```
+		lineageTag: ff411948-8d3c-4221-b670-aa9bec474f05
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Room Category' =
+			
+			VAR RoomText = 'Hotel Reviews'[Room Type]
+			RETURN
+			SWITCH( TRUE(),
+			    CONTAINSSTRING(RoomText, "Suite"), "Suite",
+			    CONTAINSSTRING(RoomText, "Penthouse"), "Suite",
+			    CONTAINSSTRING(RoomText, "Deluxe"), "Deluxe",
+			    CONTAINSSTRING(RoomText, "Superior"), "Deluxe",
+			    CONTAINSSTRING(RoomText, "Executive"), "Deluxe",
+			    CONTAINSSTRING(RoomText, "Family"), "Family",
+			    CONTAINSSTRING(RoomText, "Connecting"), "Family",
+			    CONTAINSSTRING(RoomText, "Studio"), "Standard",
+			    CONTAINSSTRING(RoomText, "Standard"), "Standard",
+			    CONTAINSSTRING(RoomText, "Single"), "Standard",
+			    CONTAINSSTRING(RoomText, "Double"), "Standard",
+			    CONTAINSSTRING(RoomText, "Twin"), "Standard",
+			    "Other" -- Catch-all for anything else
+			)
+		lineageTag: d94b334e-67d3-47ad-b8ac-0844664cfc02
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Stay Bucket' =
+			
+			VAR Days = 'Hotel Reviews'[Stay Days] -- Uses the column we fixed earlier!
+			RETURN
+			SWITCH( TRUE(),
+			    Days <= 2, "Short (1-2 Days)",
+			    Days <= 5, "Medium (3-5 Days)",
+			    Days > 5, "Long (6+ Days)",
+			    "Unknown"
+			)
+		lineageTag: 66c32bde-a6a9-41d5-8bd4-55c41ce01457
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Strategy Status' =
+			
+			IF('Hotel Reviews'[Reviewer Score] >= 8.5, "Champion",
+			IF('Hotel Reviews'[Reviewer Score] >= 7.5, "Stable", "Critical"))
+		lineageTag: 72094028-5733-4a25-99a9-95a32389d4ec
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Hotel Reviews' = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\raini\Downloads\dashboardALL.csv"),[Delimiter=",", Columns=20, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Hotel_Address", type text}, {"Review_Date", type date}, {"Average_Score", type number}, {"Hotel_Name", type text}, {"Reviewer_Nationality", type text}, {"Negative_Review", type text}, {"Positive_Review", type text}, {"Reviewer_Score", type number}, {"Days_Since_Review", Int64.Type}, {"Trip_Type", type text}, {"Traveler_Type", type text}, {"Room_Type", type text}, {"Stay_Duration", type text}, {"Composite_Sentiment", type number}, {"Positive_Tokens", type text}, {"Negative_Tokens", type text}, {"Positive_Sentiment", type number}, {"Negative_Sentiment", type number}, {"Positive_Keywords", type text}, {"Negative_Keywords", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Hotel_Address", "Hotel Address"}, {"Review_Date", "Review Date"}, {"Average_Score", "Average Score"}, {"Hotel_Name", "Hotel Name"}, {"Reviewer_Nationality", "Reviewer Nationality"}, {"Negative_Review", "Negative Review"}, {"Positive_Review", "Positive Review"}, {"Reviewer_Score", "Reviewer Score"}, {"Days_Since_Review", "Days Since Review"}, {"Trip_Type", "Trip Type"}, {"Traveler_Type", "Traveler Type"}, {"Room_Type", "Room Type"}, {"Stay_Duration", "Stay Duration"}, {"Composite_Sentiment", "Composite Sentiment"}, {"Positive_Tokens", "Positive Tokens"}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns","Stayed ","",Replacer.ReplaceText,{"Stay Duration"}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Replaced Value",{{"Negative_Tokens", "Negative Tokens"}, {"Positive_Sentiment", "Positive Sentiment"}, {"Negative_Sentiment", "Negative Sentiment"}, {"Positive_Keywords", "Positive Keywords"}, {"Negative_Keywords", "Negative Keywords"}}),
+				    #"Trimmed Text" = Table.TransformColumns(#"Renamed Columns1",{{"Trip Type", Text.Trim, type text}}),
+				    #"Capitalized Each Word" = Table.TransformColumns(#"Trimmed Text",{{"Trip Type", Text.Proper, type text}})
+				in
+				    #"Capitalized Each Word"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

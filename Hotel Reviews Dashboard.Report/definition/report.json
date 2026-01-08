@@ -1,0 +1,107 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.0.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY18SU07",
+      "reportVersionAtImport": {
+        "visual": "1.8.23",
+        "report": "2.0.23",
+        "page": "1.3.23"
+      },
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "Sunflower_Twilight23618739231380637.json",
+      "reportVersionAtImport": {
+        "visual": "2.4.0",
+        "report": "3.0.0",
+        "page": "2.3.0"
+      },
+      "type": "RegisteredResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "publicCustomVisuals": [
+    "advancedGauge97290A2225EA4EB5BC5C8D85F9ACA7DA",
+    "WaffleChart1453776852267",
+    "Sunburst1445472000808",
+    "performanceBubbleChartFBAAA829CB604E5CAB4F21729F233294",
+    "sankey_diagram_visiochart_8c1a6a012eec472d899f79bf867da012",
+    "RadarChart1446119667547",
+    "TornadoChart1452517688218"
+  ],
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY18SU07",
+          "path": "BaseThemes/CY18SU07.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "Sunflower_Twilight23618739231380637.json",
+          "path": "Sunflower_Twilight23618739231380637.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "Dark_Bg3192637114310046.png",
+          "path": "Dark_Bg3192637114310046.png",
+          "type": "Image"
+        },
+        {
+          "name": "Dark_Bg_4_Charts3727644663347678.png",
+          "path": "Dark_Bg_4_Charts3727644663347678.png",
+          "type": "Image"
+        },
+        {
+          "name": "Dark_Bg_4_Charts44632334269757223.png",
+          "path": "Dark_Bg_4_Charts44632334269757223.png",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Sunflower Twilight",
+  "dataColors": [
+    "#1E90FF",
+    "#6FC0FF",
+    "#E4FFFF",
+    "#4682B4",
+    "#E1FFFF",
+    "#1A1A1A",
+    "#292929",
+    "#404040"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#070f25",
+  "tableAccent": "#0F1934"
+}
