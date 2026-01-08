@@ -6,6 +6,11 @@ This project is an end-to-end business intelligence solution built using **Power
 The dashboard enables stakeholders to filter data by traveler type (Business vs. Leisure), nationality, and review period to make data-driven decisions on service improvements.
 
 ### 📷 Dashboard Preview
+### 📷 Dashboard Preview
+![Overview Page](Hotel%20Reviews%20Dashboard%20P1.png)
+![Demographics Page](Hotel%20Reviews%20Dashboard%20P2.png)
+![Sentiment Analysis Page](Hotel%20Reviews%20Dashboard%20P3.png)
+![Strategy Insights Page](Hotel%20Reviews%20Dashboard%20P4.png)
 
 ### 🛠️ Tech Stack
 * **Data Cleaning & ETL:** Microsoft Excel, Power Query
