@@ -24,4 +24,4 @@ The dashboard enables stakeholders to filter data by traveler type (Business vs.
 * **Sentiment Filtering:** Custom logic to categorize and analyze positive vs. negative word counts from the raw review text.
 
 ### 📂 Dataset
-The dataset was sourced from Kaggle: [515k Hotel Reviews Data in Europe](
+The dataset was sourced from Kaggle: [[515k Hotel Reviews Data in Europe]](https://www.kaggle.com/datasets/jiashenliu/515k-hotel-reviews-data-in-europe)
